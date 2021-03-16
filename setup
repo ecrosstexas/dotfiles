@@ -55,7 +55,7 @@ DF_BRANCH="main"
 
 # Bring the dotfiles from hosted repository if not already present
 if [ ! -d "$HOME/.dotfiles" ]; then
-    /usr/bin/git clone --bare https://github.com/kalkayan/dotfiles.git $HOME/.dotfiles
+    /usr/bin/git clone --bare https://github.com/ecrosstexas/dotfiles.git $HOME/.dotfiles
 fi
 
 # Reset the unstagged changes before updating (TODO: experiment with stash)
