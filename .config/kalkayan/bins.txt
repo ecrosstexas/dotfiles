@@ -1,6 +1,8 @@
 coreutils
 zsh
-nvm
+node
+python@3.9
+lynx
 tmux
 ripgrep
 tree
