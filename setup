@@ -130,9 +130,18 @@ brew install --cask iterm2
 # https://github.com/ohmyzsh/ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Install command-line fuzzy finder
+# https://github.com/junegunn/fzf
+brew install fzf
+
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
+
 # Install Terminal Themes 
 # https://iterm2colorschemes.com
 git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git "$HOME/.config/terminal-themes"
+
+[ -f ~/.zshrc ] && source ~/.zshrc
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Binaries and Casks /!\                        #
