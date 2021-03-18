@@ -236,9 +236,6 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
-# Install Terminal Themes
-git clone https://github.com/lysyi3m/osx-terminal-themes.git "$HOME/.config/terminal-themes"
-
 # snd set Solarized Dark as a default
 open "$HOME/.config/terminal-themes/themes/Solarized Dark.terminal"
 sleep 1  # Wait a bit to make sure the theme is loaded
