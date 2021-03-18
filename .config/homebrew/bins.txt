@@ -6,7 +6,6 @@ git-lfs
 gh
 diff-so-fancy
 tree
-ripgrep-all
 python@3.9
 lynx
 tmux
