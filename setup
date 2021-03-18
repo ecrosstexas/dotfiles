@@ -107,7 +107,7 @@ echo "Installing Fonts..."
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 brew install --cask font-source-code-pro
-brew insatll --cask font-powerline-symbols
+brew install --cask font-powerline-symbols
 brew install --cask font-consolas-for-powerline
 brew install --cask font-fira-mono-for-powerline
 brew install --cask font-source-code-pro-for-powerline
