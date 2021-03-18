@@ -1,6 +1,3 @@
-font-fira-code
-font-source-code-pro
-font-jetbrains-mono
 setapp
 dropbox
 mailplane
