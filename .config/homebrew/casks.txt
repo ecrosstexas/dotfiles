@@ -1,5 +1,7 @@
+font-fira-code
+font-source-code-pro
+font-jetbrains-mono
 setapp
-mas
 dropbox
 mailplane
 iterm2
@@ -26,6 +28,4 @@ wireshark
 microsoft-word
 microsoft-excel
 microsoft-powerpoint
-font-fira-code
-font-source-code-pro
-font-jetbrains-mono
+mas
