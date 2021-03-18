@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2020 Manish Sahani
+# Copyright (c) 2021 Eric Wallace (https://ecrosstexas.com/)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -48,4 +48,3 @@ unset __conda_setup
 
 # Load and source FZF configs
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
