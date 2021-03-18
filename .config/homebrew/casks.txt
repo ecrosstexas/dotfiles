@@ -24,4 +24,3 @@ dbeaver-community
 microsoft-word
 microsoft-excel
 microsoft-powerpoint
-mas
