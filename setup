@@ -26,19 +26,19 @@
 # of these formulas are stored in the bins.txt file under ~/.config/homebrew
 # ~ Note ~ : this file is automatically updates with everytime brew installs or
 # removes a binary
-mapfile -t bins <  <(cat $HOME/.config/homebrew/bins.txt)
+#mapfile -t bins <  <(cat $HOME/.config/homebrew/bins.txt)
 
 # Brew Casks - these are the casks that are available as brew formula. A list
 # of these casks are stored in the casks.txt under ~/.config/homebrew folder.
 # ~ Note ~ : this file is automatically updates with everytime brew installs or
 # removes a casks
-mapfile -t casks < <(cat $HOME/.config/homebrew/casks.txt)
+#mapfile -t casks < <(cat $HOME/.config/homebrew/casks.txt)
 
 # Mac App Store Apps - these are the casks that are available as brew formula. A list
 # of these casks are stored in the casks.txt under ~/.config/mas folder.
 # ~ Note ~ : this file is automatically updates with everytime brew installs or
 # removes a casks
-# mas list | {mapfile -t apps < <(cat $HOME/.config/mas-apps.txt)}
+#mas list | {mapfile -t apps < <(cat $HOME/.config/mas-apps.txt)}
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                          /!\ Install dotfiles /!\                           #
@@ -49,7 +49,16 @@ mapfile -t casks < <(cat $HOME/.config/homebrew/casks.txt)
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 
-echo "Installing dotfiles..."
+Echo "🚀 Welcome to the ecrosstexas/dotfiles installer!"
+echo "-------------------------------------------------"
+echo
+
+# To test that git is installed (if not macOS will prompt an installer)
+git --version
+
+echo "OK, now let's get started installing dotfiles..."
+echo "------------------------------------------------"
+echo
 
 # The trick behind the mangement of dotfiles is cloning it as a bare repository
 # therefore, first, we need to define some arguments for the git command. The
