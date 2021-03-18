@@ -224,3 +224,6 @@ echo "Restoring App Preferences..."
 mackup restore
 
 [ -f ~/.zshrc ] && source ~/.zshrc
+
+echo "Now, let's setup macOS..."
+source .macos
