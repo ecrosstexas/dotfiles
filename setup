@@ -112,6 +112,19 @@ brew install --cask font-consolas-for-powerline
 brew install --cask font-fira-mono-for-powerline
 brew install --cask font-source-code-pro-for-powerline
 
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+#                           /!\ Terminal /!\                                  #
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+#                                                                             #
+#  This section deals with the setup of terminal and the shel                 #
+#                                                                             #
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+
+echo "Setting Up Terminal and Shell..."
+brew install --cask iterm2
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install Terminal Themes
+git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git "$HOME/.config/terminal-themes"
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Binaries and Casks /!\                        #
@@ -218,16 +231,6 @@ command -v yarn
 command -v python
 
 brew cleanup
-
-# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
-#                           /!\ Shells /!\                                    #
-# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
-#                                                                             #
-#  This section deals with the setup of the shell                             #
-#                                                                             #
-# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Last Things /!\                               #
