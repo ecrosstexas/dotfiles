@@ -131,7 +131,7 @@ echo "Installing Homebrew casks (macOS Apps)..."
 for c in "${casks[@]}"; do
     # first, check if the cask is present or not, if not install
     if ! brew list --cask | grep "$c" 1>/dev/null; then
-        brew casks install "$c"
+        brew cask install "$c"
     fi
 done
 
