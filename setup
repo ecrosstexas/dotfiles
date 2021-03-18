@@ -103,6 +103,11 @@ echo "Updating Homebrew..."
 brew update
 brew upgrade
 
+echo "Installing Fonts..."
+brew tap homebrew/cask-fonts
+brew install font-fira-code
+brew install font-source-code-pro
+
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Binaries and Casks /!\                        #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
