@@ -2,7 +2,7 @@
 
 # MIT License
 #
-# Copyright (c) 2021 Eric Wallace (https://ecrosstexas.com/)
+# Copyright (c) 2021 Eric Wallace <https://ecrosstexas.com/>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -165,14 +165,14 @@ fi
 # done
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
-#                           /!\ NODE /!\                             #
+#                           /!\ Node.JS/!\                                    #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                                                                             #
-#  This section deals with automated installation from the Mac App Store      #
+#  This section deals with automated installation of NVM, Node.JS, NPM        #
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 
-echo "Install Node Version Manager..."
+echo "Installing Node Version Manager (NVM)..."
 # https://github.com/nvm-sh/nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
@@ -180,9 +180,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-echo "Install..."
-
-
+echo "Installing Node.JS..."
+# Until LTS is M1, must use current 15.5+
+nvm install node
+npm install -g npm yarn
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Post Installation /!\                         #
@@ -191,17 +192,6 @@ echo "Install..."
 #  This section deals with the setup of specific binaries after installation  #
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
-
-
-# Post-Installation for Node Version Manager (NVM)
-# if [[ " ${bins[@]} " =~ " nvm " ]]; then
-#    [ ! -d ~/.nvm ] && mkdir ~/.nvm
-#    # source the nvm.sh file to add nvm in path
-#    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-#    # Install lts support for nodejs, yarn and update npm
-#    nvm install --lts
-#    npm install -g npm yarn
-#fi
 
 echo "Verifying installations..."
 command -v git
