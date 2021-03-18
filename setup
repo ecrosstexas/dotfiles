@@ -38,7 +38,7 @@ mapfile -t casks < <(cat $HOME/.config/homebrew/casks.txt)
 # of these casks are stored in the casks.txt under ~/.config/mas folder.
 # ~ Note ~ : this file is automatically updates with everytime brew installs or
 # removes a casks
-mas list | {mapfile -t apps < <(cat $HOME/.config/mas-apps.txt)}
+# mas list | {mapfile -t apps < <(cat $HOME/.config/mas-apps.txt)}
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                          /!\ Install dotfiles /!\                           #
