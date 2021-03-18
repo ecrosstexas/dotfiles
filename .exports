@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
+
 # MIT License
 #
-# Copyright (c) 2020 Manish Sahani
+# Copyright (c) 2021 Eric Wallace (https://ecrosstexas.com/)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +23,7 @@
 # SOFTWARE.
 
 
-export EDITOR="/usr/local/bin/nvim"
+export EDITOR="/usr/bin/nano"
 export NVM_DIR="$HOME/.nvm"
 
 # export LDFLAGS="-L/usr/local/opt/llvm/lib"
@@ -36,7 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 # export GOPATH=$HOME/Code/go
 # export GOROOT=/usr/local/go/
 
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+# export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 # export PATH="/usr/local/opt/llvm/bin:$PATH"
 # export PATH="/usr/local/opt/libpq/bin:$PATH"
 # export PATH="/opt/anaconda3/bin:$PATH"
@@ -44,3 +45,15 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # export PATH=$PATH:$GOPATH/bin
 # export PATH=$PATH:$GOROOT/bin
+
+# Python Exports
+# ++++++++++++++++++++++++
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
