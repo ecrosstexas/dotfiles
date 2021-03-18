@@ -2,7 +2,7 @@
 
 # MIT License
 #
-# Copyright (c) 2020 Manish Sahani
+# Copyright (c) 2021 Eric Wallace (https://ecrosstexas.com/)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +23,22 @@
 # SOFTWARE.
 
 # Brew Binaries - these are binaries that are available as brew formula. A list
-# of these formulas are stored in the bins.txt file under ~/.config/kalkayan
+# of these formulas are stored in the bins.txt file under ~/.config/homebrew
 # ~ Note ~ : this file is automatically updates with everytime brew installs or
 # removes a binary
-mapfile -t bins <  <(cat $HOME/.config/kalkayan/bins.txt)
+mapfile -t bins <  <(cat $HOME/.config/homebrew/bins.txt)
 
 # Brew Casks - these are the casks that are available as brew formula. A list
-# of these casks are stored in the casks.txt under ~/.config/kalkayan folder.
+# of these casks are stored in the casks.txt under ~/.config/homebrew folder.
 # ~ Note ~ : this file is automatically updates with everytime brew installs or
 # removes a casks
-mapfile -t casks < <(cat $HOME/.config/kalkayan/casks.txt)
+mapfile -t casks < <(cat $HOME/.config/homebrew/casks.txt)
 
+# Mac App Store Apps - these are the casks that are available as brew formula. A list
+# of these casks are stored in the casks.txt under ~/.config/mas folder.
+# ~ Note ~ : this file is automatically updates with everytime brew installs or
+# removes a casks
+mas list | {mapfile -t apps < <(cat $HOME/.config/mas-apps.txt)}
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                          /!\ Install dotfiles /!\                           #
@@ -43,6 +48,8 @@ mapfile -t casks < <(cat $HOME/.config/kalkayan/casks.txt)
 #  git repository (see more ~ https://bit.ly/kalkayan-df)                     #
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+
+echo "Installing dotfiles..."
 
 # The trick behind the mangement of dotfiles is cloning it as a bare repository
 # therefore, first, we need to define some arguments for the git command. The
@@ -78,31 +85,36 @@ $DOTFILES pull origin $DF_BRANCH
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 
+echo "Installing Xcode Command Line Tools..."
 # Install Xcode-select (xcode command line tools) is not already installed
 if ! xcode-select -p 1>/dev/null; then
     xcode-select --install
 fi
 
+echo "Installing Homebrew..."
 # Install brew.sh (system package manager) if already not installed
 if ! brew -h 1>/dev/null; then
     echo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 # Update brew to latest available version
-brew update
 
+echo "Updating Homebrew..."
+brew update
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Binaries and Casks /!\                        #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                                                                             #
-#  This section deals with the installation of all the binaries and casks.    #
+#  This section deals with the installation of all the Homebrew               #
+#  binaries and casks.                                                        #
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 
 # required to properly install coreutils
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
+echo "Installing Homebrew binaries (Command Line Apps)..."
 # Install binaries using Homebrew, iterate over bins array and install.
 for binary in "${bins[@]}"; do
     # split the brew formula into binary name and version of installation and
@@ -114,6 +126,7 @@ for binary in "${bins[@]}"; do
     fi
 done
 
+echo "Installing Homebrew casks (macOS Apps)..."
 # Install casks using Homebrew, iterate over casks array and install.
 for c in "${casks[@]}"; do
     # first, check if the cask is present or not, if not install
@@ -131,6 +144,25 @@ if ! fgrep -q "${BREW_PREFIX}/bin/zsh" /etc/shells; then
   chsh -s "${BREW_PREFIX}/bin/zsh";
 fi
 
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+#                           /!\ Mac App Store /!\                             #
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+#                                                                             #
+#  This section deals with automated installation from the Mac App Store      #
+#                                                                             #
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+
+echo "Installing Mac App Store Apps..."
+echo "First let's sign in..."
+mas signin eric@ecrosstexas.com
+
+# Install apps using mas-cli
+for a in "${apps[@]}"; do
+    # first, check if the cask is present or not, if not install
+    if ! mas list | grep "$a" 1>/dev/null; then
+        mas install "$a"
+    fi
+done
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Post Installation /!\                         #
@@ -150,6 +182,28 @@ if [[ " ${bins[@]} " =~ " nvm " ]]; then
     npm install -g npm yarn
 fi
 
+echo "Verifying installations..."
+echo command -v git
+echo command -v nvm
+echo command -v node
+echo command -v npm
+echo command -v yarn
+echo command -v python
+
 brew cleanup
+
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+#                           /!\ Last Things /!\                               #
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+#                                                                             #
+#  This section deals with the setup of specific binaries after installation  #
+#                                                                             #
+# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
+
+echo "Creating dev folder..."
+echo mkdir ~/dev
+
+echo "Restoring App Preferences..."
+echo mackup restore
 
 [ -f ~/.zshrc ] && source ~/.zshrc

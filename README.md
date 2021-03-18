@@ -1,3 +1,10 @@
+These are the dotfiles that I use in setting up a new machine.
+
+## Thanks
+-  https://github.com/kalkayan/dotfiles
+
+Here is his README:
+
 ![banner.jpe](/static/banner.jpg)
 
 There is something fascinating about customizing your operating system through dotfiles. This repository is the collection of configurations that I learned over time and still use for my daily work.

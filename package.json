@@ -1,0 +1,21 @@
+{
+    "name": "dotfiles",
+    "version": "0.1.0",
+    "description": "",
+    "author": {
+      "name": "Eric Wallace",
+      "url": "https://ecrosstexas.com/"
+    },
+    "homepage": "https://github.com/ecrosstexas/dotfiles",
+    "repository": "ecrosstexas/dotfiles",
+    "license": "MIT",
+    "engines": {
+      "node": ">=4"
+    },
+    "main": "",
+    "files": [
+      ""
+    ],
+    "scripts": {},
+    "keywords": []
+  }
