@@ -1,9 +1,0 @@
-coreutils
-zsh
-node
-python@3.9
-lynx
-tmux
-ripgrep
-tree
-git-lfs
