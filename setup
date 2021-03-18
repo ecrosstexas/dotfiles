@@ -48,14 +48,15 @@
 #  git repository (see more ~ https://bit.ly/kalkayan-df)                     #
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
-
-Echo "🚀 Welcome to the ecrosstexas/dotfiles installer!"
+echo
+echo "🚀 Welcome to the ecrosstexas/dotfiles installer!"
 echo "-------------------------------------------------"
 echo
 
 # To test that git is installed (if not macOS will prompt an installer)
 git --version
 
+echo
 echo "OK, now let's get started installing dotfiles..."
 echo "------------------------------------------------"
 echo
@@ -93,26 +94,39 @@ $DOTFILES pull origin $DF_BRANCH
 #  interpreters, and system package manager - Brew.sh.                        #
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
-
+echo
 echo "Installing Xcode Command Line Tools..."
+echo
+echo
 # Install Xcode-select (xcode command line tools) is not already installed
 if ! xcode-select -p 1>/dev/null; then
     xcode-select --install
 fi
 
+echo
 echo "Installing Homebrew..."
+echo
+echo
+
 # Install brew.sh (system package manager) if already not installed
 if ! brew -h 1>/dev/null; then
-    echo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Update brew to latest available version(s)
 
+echo
 echo "Updating Homebrew..."
+echo
+echo
 brew update
 brew upgrade
 
+echo
 echo "Installing Fonts..."
+echo
+echo
+
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 brew install --cask font-source-code-pro
@@ -128,9 +142,10 @@ brew install --cask font-source-code-pro-for-powerline
 #  This section deals with the setup of terminal and the shel                 #
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
-
+echo
 echo "Setting Up Terminal and Shell..."
-
+echo
+echo
 # Install iTerm
 # https://iterm2.com
 brew install --cask iterm2
