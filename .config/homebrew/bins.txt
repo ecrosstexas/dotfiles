@@ -9,4 +9,3 @@ python@3.9
 lynx
 tmux
 mackup
-cask
