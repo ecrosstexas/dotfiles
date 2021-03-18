@@ -21,7 +21,6 @@ vlc
 notion
 adobe-acrobat-reader
 dbeaver-community
-wireshark
 microsoft-word
 microsoft-excel
 microsoft-powerpoint
