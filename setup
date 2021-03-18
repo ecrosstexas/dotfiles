@@ -97,10 +97,11 @@ if ! brew -h 1>/dev/null; then
     echo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-# Update brew to latest available version
+# Update brew to latest available version(s)
 
 echo "Updating Homebrew..."
 brew update
+brew upgrade
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Binaries and Casks /!\                        #
