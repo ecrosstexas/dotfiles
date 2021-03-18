@@ -152,17 +152,17 @@ fi
 #                                                                             #
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 
-echo "Installing Mac App Store Apps..."
-echo "First let's sign in..."
-mas signin eric@ecrosstexas.com
+# echo "Installing Mac App Store Apps..."
+# echo "First let's sign in..."
+# mas signin eric@ecrosstexas.com
 
 # Install apps using mas-cli
-for a in "${apps[@]}"; do
-    # first, check if the cask is present or not, if not install
-    if ! mas list | grep "$a" 1>/dev/null; then
-        mas install "$a"
-    fi
-done
+# for a in "${apps[@]}"; do
+#    # first, check if the cask is present or not, if not install
+#    if ! mas list | grep "$a" 1>/dev/null; then
+#        mas install "$a"
+#    fi
+# done
 
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 #                           /!\ Post Installation /!\                         #
@@ -183,12 +183,12 @@ if [[ " ${bins[@]} " =~ " nvm " ]]; then
 fi
 
 echo "Verifying installations..."
-echo command -v git
-echo command -v nvm
-echo command -v node
-echo command -v npm
-echo command -v yarn
-echo command -v python
+command -v git
+command -v nvm
+command -v node
+command -v npm
+command -v yarn
+command -v python
 
 brew cleanup
 
@@ -201,9 +201,9 @@ brew cleanup
 # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: #
 
 echo "Creating dev folder..."
-echo mkdir ~/dev
+mkdir ~/dev
 
 echo "Restoring App Preferences..."
-echo mackup restore
+mackup restore
 
 [ -f ~/.zshrc ] && source ~/.zshrc
