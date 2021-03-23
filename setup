@@ -56,6 +56,9 @@ echo
 # To test that git is installed (if not macOS will prompt an installer)
 git --version
 
+echo -n "Press any key to continue..."
+read key
+
 echo
 echo "OK, now let's get started installing dotfiles..."
 echo "------------------------------------------------"
